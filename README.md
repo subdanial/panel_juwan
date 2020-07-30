@@ -6,3 +6,4 @@
  **2.0.2 :**
  - fix git connection
  - fix layouts.category-children to layout ##
+ - disable delete client by marketer
