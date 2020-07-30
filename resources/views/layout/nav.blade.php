@@ -14,7 +14,7 @@
 
 
 
-    <span class="navbar-brand">JUWAN 2.0.1</span>
+    <span class="navbar-brand">JUWAN 2.0.2</span>
         
     <button class="btn navbar-toggler nav-full-open">
         <span class="text-white"><i class="fas fa-th-large"></i></span>
