@@ -1,0 +1,281 @@
+div.dataTables_wrapper div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+    float: right;
+}
+.custom-select {
+    background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat left 0.75rem center/8px 10px !important;
+}
+
+.dataTables_filter{
+    padding: 0;
+    float:left!important;
+}
+div.dataTables_wrapper div.dataTables_length select {
+width:60px; 
+margin-right: 0.5em;
+margin-left: 0.5em;
+
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-right: 0.5em;
+    margin-left: 0!important;
+    display: inline-block;
+    width: auto;
+}
+
+.page-item.active .page-link {
+    background-color: #23272B !important;
+    border-color: #23272B !important;
+}
+.pagination {
+    margin-top:5px;
+margin-right: -40px!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: white !important;
+    border: none!important;
+    background: transparent!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding:0!important;
+}
+.page-item.disabled .page-link {
+    border-radius: 0!important;
+}
+.ltr{
+    direction: ltr!important;
+}
+.dropdown-menu {
+    border-radius: 0 !important;
+}
+
+input[type=text],
+input[type=number],
+input[type=password],
+input[type=search],
+select,
+textarea {
+    border-radius: 0 !important;
+}
+
+.btn {
+    border-radius: 0 !important;
+}
+.nav-link.item_link , .nav-link.item_link_new{
+    border-radius: 0!important;
+    color:black!important;
+} 
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file-invoice {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file-invoice input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;    
+    text-align: right;
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;    
+    font-size: 100px;
+    text-align: right;
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    /* display: none; */
+}
+ 
+#img-upload {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.tree,
+.tree ul {
+    margin: 0;
+    text-align: right;
+    padding: 0;
+    list-style: none
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #606ec3;
+    border-color: #606ec3;
+}
+
+.panel-primary {
+
+    border-color: #606ec3;
+    margin: 3%;
+
+}
+
+.tree ul {
+
+    margin-right: 1em;
+
+    position: relative
+}
+
+.tree ul ul {
+
+    margin-right: .5em
+}
+
+.tree ul:before {
+
+    content: "";
+
+    display: block;
+
+    width: 0;
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    right: 0;
+
+    border-right: 1px solid
+}
+
+.tree li {
+
+    margin: 0;
+    padding: 0 1em;
+    color: #23272B;
+    font-weight: 700;
+    position: relative
+}
+
+.tree ul li:before {
+
+    content: "";
+
+    display: block;
+
+    width: 10px;
+
+    height: 0;
+
+    border-top: 1px solid;
+
+    margin-top: -1px;
+
+    position: absolute;
+
+    top: 1em;
+
+    right: 0
+}
+
+.tree ul li:last-child:before {
+
+    background: #fff;
+
+    height: auto;
+
+    top: 1em;
+
+    bottom: 0
+}
+
+.indicator {
+
+    margin-right: 5px;
+
+}
+
+.tree li a {
+
+    text-decoration: none;
+
+    color: #23272B;
+
+}
+
+.tree li button,
+.tree li button:active,
+.tree li button:focus {
+
+    text-decoration: none;
+
+    color: #23272B;
+
+    border: none;
+
+    background: transparent;
+
+    margin: 0px 0px 0px 0px;
+
+    padding: 0px 0px 0px 0px;
+
+    outline: 0;
+
+}
+
+.client_dropdown{
+    max-height: 200px;
+    overflow-y:auto;
+}
+
+.nav-full{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color:#1a1c1f; /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+.nav-box{
+    width:15vw;
+    height:15vw;
+    margin:2vw;
+    padding-top:4.5vw;
+    font-size:2vw;
+}
+.nav-box a{
+
+    font-size:2vw;
+}
+
+.nav-box button{
+    font-size:2vw;
+}
+.nav-full-close{
+    height: 10vh;
+        padding-right: 1vh;
+    font-size: 5vw;
+}
+.nav-full-close{
+    cursor: pointer;
+}

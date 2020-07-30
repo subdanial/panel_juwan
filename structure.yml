@@ -1,0 +1,22 @@
+______________________________________________________________________________________
+status_type             |      returned        |              type                    |
+--------------------------------------------------------------------------------------| 
+0sabad                  |                      |                                      |
+1sabad_movaghat         |                      |                                      |
+2pishsefaresh           |                      | 0naghd - 1checknaghd - 2hesabbaznaghd|
+3sefaresh               | 0marjooyi - 1foroosh | 0naghd - 1checknaghd - 2hesabbaznaghd|
+
+CART <-> PISHFACTOR ;
+CART  -> FACTOR ;
+FACTOR <-> PISHFACTOR (MAALI-ANBAAR PREMISSION) ;
+
+
+imporve:
+  - jame cheko naghdo pos nabayad bishtaraz amout she client side
+  - dokmeye in order moshkel dare too sefareshate forooshande ke bere bara maali
+  - forooshande clienataye khodesho edit kone javascripti natoone baghiaro edit kone
+  - link kardane moshtari be show vabaghie chiza
+
+
+
+table ordering
