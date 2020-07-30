@@ -1,2 +1,3 @@
 # changelog
-2.0.1 : new panel started
+**2.0.1 :**
+ - new panel started
