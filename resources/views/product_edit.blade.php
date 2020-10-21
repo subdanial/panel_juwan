@@ -46,7 +46,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" name="code" id=""
+                                    <input type="number" class="form-control" name="code_system" id=""
                                         value="{{$product->code_system}}">
                                 </div>
                             </td>
