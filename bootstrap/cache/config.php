@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:NrR5Tzj8jtf0bBfHgMG+iy4nEKE7MIZY1i+CEfQyuOg=',
+    'key' => 'base64:P6xpKxd3SLxgWfL5ahewFJikqlaf+rS05R8SIndH+V8=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -184,7 +184,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/var/www/pan.juwan.ir/storage/framework/cache/data',
+        'path' => 'C:\\Laragon\\www\\juwan\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -272,8 +272,8 @@
         'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'panel',
-        'username' => 'danial',
-        'password' => 'WTFIS0124',
+        'username' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -292,8 +292,8 @@
         'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'panel',
-        'username' => 'danial',
-        'password' => 'WTFIS0124',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -307,8 +307,8 @@
         'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'panel',
-        'username' => 'danial',
-        'password' => 'WTFIS0124',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -400,12 +400,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/pan.juwan.ir/storage/app',
+        'root' => 'C:\\Laragon\\www\\juwan\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/pan.juwan.ir/storage/app/public',
+        'root' => 'C:\\Laragon\\www\\juwan\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -422,7 +422,7 @@
     ),
     'links' => 
     array (
-      '/var/www/pan.juwan.ir/public/storage' => '/var/www/pan.juwan.ir/storage/app/public',
+      'C:\\Laragon\\www\\juwan\\public\\storage' => 'C:\\Laragon\\www\\juwan\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -456,13 +456,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/var/www/pan.juwan.ir/storage/logs/laravel.log',
+        'path' => 'C:\\Laragon\\www\\juwan\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/var/www/pan.juwan.ir/storage/logs/laravel.log',
+        'path' => 'C:\\Laragon\\www\\juwan\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -512,7 +512,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/var/www/pan.juwan.ir/storage/logs/laravel.log',
+        'path' => 'C:\\Laragon\\www\\juwan\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -569,7 +569,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/var/www/pan.juwan.ir/resources/views/vendor/mail',
+        0 => 'C:\\Laragon\\www\\juwan\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -648,7 +648,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/var/www/pan.juwan.ir/storage/framework/sessions',
+    'files' => 'C:\\Laragon\\www\\juwan\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -668,9 +668,9 @@
   array (
     'paths' => 
     array (
-      0 => '/var/www/pan.juwan.ir/resources/views',
+      0 => 'C:\\Laragon\\www\\juwan\\resources\\views',
     ),
-    'compiled' => '/var/www/pan.juwan.ir/storage/framework/views',
+    'compiled' => 'C:\\Laragon\\www\\juwan\\storage\\framework\\views',
   ),
   'ide-helper' => 
   array (
@@ -684,7 +684,7 @@
     'include_helpers' => false,
     'helper_files' => 
     array (
-      0 => '/var/www/pan.juwan.ir/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+      0 => 'C:\\Laragon\\www\\juwan/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ),
     'model_locations' => 
     array (

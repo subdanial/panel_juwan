@@ -90,6 +90,7 @@ class ProductController extends Controller
         $request->validate([
             'category_id' => 'required',
             'code' => 'required|unique:products',
+            'code_systen' => 'required',
             'name' => 'required',
             'image' => 'required',
             'sizes' => 'required',
@@ -103,6 +104,7 @@ class ProductController extends Controller
             $product = Product::create([
                 'category_id' => $request->category_id,
                 "code" => $request->code,
+                "code_system" => $request->code_system,
                 "name" => $request->name,
                 "image" => $request->image,
                 "sizes" => json_encode($request->sizes),
@@ -176,6 +178,7 @@ class ProductController extends Controller
         $product->update([
             'category_id' => $request->category_id,
             "code" => $request->code,
+            "code_system" => $request->code_system,
             "name" => $request->name,
             "image" => $image,
             "sizes" => json_encode($request->sizes),

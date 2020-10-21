@@ -42,6 +42,19 @@
                         </tr>
                         <tr>
                             <td>
+                                <span>کد سیستمی</span>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="code" id=""
+                                        value="{{$product->code_system}}">
+                                </div>
+                            </td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td>
                                 <span>نام</span>
                             </td>
                             <td>

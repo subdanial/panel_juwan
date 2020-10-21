@@ -42,6 +42,17 @@
                         </tr>
                         <tr>
                             <td>
+                                <span>کد سیستمی</span>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="number" class="form-control " name="code_system" id="" >
+                                    <small class="text-danger js-code-exist" style="display: none">کد کالا موجود است</small>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <span>نام</span>
                             </td>
                             <td>
