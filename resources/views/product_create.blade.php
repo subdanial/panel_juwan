@@ -47,7 +47,6 @@
                             <td>
                                 <div class="form-group">
                                     <input type="number" class="form-control " name="code_system" id="" >
-                                    <small class="text-danger js-code-exist" style="display: none">کد کالا موجود است</small>
                                 </div>
                             </td>
                         </tr>
@@ -492,6 +491,7 @@ $("#product_add_form").on('submit', function (e) {
     }
     product.category_id = $("input[name='category_id']:checked").val();
     product.code = $("input[name='code']").val();
+    product.code_system = $("input[name='code_system']").val();
     product.name = $("input[name='name']").val();
     product.price = $("input[name='price']").val();
     product.price_financial = $("input[name='price_financial']").val();
