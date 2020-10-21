@@ -83,7 +83,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        
         if ($request->price_financial == 0)
             $price_financial = $request->price;
         else
@@ -91,7 +90,6 @@ class ProductController extends Controller
         $request->validate([
             'category_id' => 'required',
             'code' => 'required|unique:products',
-            'code_system' => 'required',
             'name' => 'required',
             'image' => 'required',
             'sizes' => 'required',
@@ -105,7 +103,7 @@ class ProductController extends Controller
             $product = Product::create([
                 'category_id' => $request->category_id,
                 "code" => $request->code,
-                 "code_system" => $request->code_system,
+                "code_system" => $request->code_system,
                 "name" => $request->name,
                 "image" => $request->image,
                 "sizes" => json_encode($request->sizes),

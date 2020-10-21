@@ -46,7 +46,7 @@
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <input type="number" class="form-control " name="code_system" id="" >
+                                    <input type="number" class="form-control " name="code_system"  >
                                 </div>
                             </td>
                         </tr>
@@ -492,6 +492,7 @@ $("#product_add_form").on('submit', function (e) {
     product.category_id = $("input[name='category_id']:checked").val();
     product.code = $("input[name='code']").val();
     product.code_system = $("input[name='code_system']").val();
+    
     product.name = $("input[name='name']").val();
     product.price = $("input[name='price']").val();
     product.price_financial = $("input[name='price_financial']").val();
@@ -501,7 +502,7 @@ $("#product_add_form").on('submit', function (e) {
 
 
     if (item_is_valid && input_is_valid && color_is_valid && size_is_valid && box_is_valid ) {
-        // console.log(product);
+        console.log(product);
         $.ajax({
             type: "POST",
             url: "/products/store",
