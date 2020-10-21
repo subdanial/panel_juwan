@@ -83,7 +83,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        
         if ($request->price_financial == 0)
             $price_financial = $request->price;
         else
