@@ -27,7 +27,8 @@
                         افزودن محصول به سبد
                     </span>
                     <div>
-                        <a href="{{route('orders.cart')}}" class="d-block btn btn-sm btn-dark pt-1"> مشاهده سبد <i class="fa fa-eye align-middle mr-1" aria-hidden="true"></i></a>
+                        <a href="{{route('orders.cart')}}" class="d-block btn btn-sm btn-dark pt-1"> مشاهده سبد <i
+                                class="fa fa-eye align-middle mr-1" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@
                             <th>عملیات</th>
                         </tr>
                     </thead>
-       
+
                 </table>
             </div>
         </div>
@@ -76,8 +77,17 @@
                 </div>
                 <div class="card p-4 mb-2">
                     <label for="product_code">کد کالا</label>
+                    <div class="scan">
+                        <div id="loadingMessage">اسکنر درحال لود . </div>
+                        <canvas id="canvas" class="w-100"hidden></canvas>
+                        <div id="output" hidden>
+                            <div id="outputMessage"></div>
+                            <div hidden><b>Data:</b> <span id="outputData"></span></div>
+                        </div>
+
+                    </div>
                     <div class="d-flex mb-2">
-                        <input type="number" name="code" class="form-control"
+                        <input type="text" name="code" class="form-control"
                             value="@isset($item){{$item->product_code}}@endisset" id="product_code" required>
                         <button type="submit" class="select_color btn btn-dark">انتخاب</button><br>
                     </div>
@@ -99,4 +109,65 @@
 
     </div>
 </div>
+
+<script src="{{asset('js/jsQR.js')}}"></script>
+
+<script>
+    var video = document.createElement("video");
+    var canvasElement = document.getElementById("canvas");
+    var canvas = canvasElement.getContext("2d");
+    var loadingMessage = document.getElementById("loadingMessage");
+    var outputContainer = document.getElementById("output");
+    var outputMessage = document.getElementById("outputMessage");
+    var outputData = document.getElementById("product_code");
+
+    function drawLine(begin, end, color) {
+      canvas.beginPath();
+      canvas.moveTo(begin.x, begin.y);
+      canvas.lineTo(end.x, end.y);
+      canvas.lineWidth = 4;
+      canvas.strokeStyle = color;
+      canvas.stroke();
+    }
+
+    // Use facingMode: environment to attemt to get the front camera on phones
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
+    });
+
+    function tick() {
+      loadingMessage.innerText = "سکنر درحال لود ..."
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        loadingMessage.hidden = true;
+        canvasElement.hidden = false;
+        outputContainer.hidden = false;
+
+        canvasElement.height = video.videoHeight;
+        canvasElement.width = video.videoWidth;
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+        if (code) {
+          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+          outputMessage.hidden = true;
+          outputData.parentElement.hidden = false;
+          outputData.value = code.data;
+        } else {
+          outputMessage.hidden = false;
+          outputData.parentElement.hidden = true;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+</script>
+
+
 @endsection
