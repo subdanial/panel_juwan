@@ -15,7 +15,6 @@ class ProductController extends Controller
 
     public function table(Request $request)
     {
-        $products = Product::get();
         return DataTables::of(Product::all())
             ->editColumn('price', '{!!number_format($price)." ریال "!!}')
             ->editColumn('price_financial', '{!!number_format($price_financial)." ریال "!!}')
@@ -37,16 +36,29 @@ class ProductController extends Controller
             ->addColumn('action', function ($data) {
                 $content = '
                         <div class="btn-group btn-group-sm" role="group" >
-			<form action='.route("products.destroy",$data->id).'>
+			<form action=' . route("products.destroy", $data->id) . '>
                         <button type="submit" class="btn btn-sm  p-btn-sm btn-dark product_delete" id="' . $data->id . '"><i class="fas fa-trash fa-sm"></i></button>
 </form>
                   
       <a href="/products/edit/' . $data->id . '">
                         <button type="button" class="btn btn-sm p-btn-sm btn-dark product_edit" id="' . $data->id . '"><i class="fas fa-sm fa-edit"></i></button>
                         </a>
-                        </div>';
+                        <button 
+                        
+                        id="' . $data->id . '"
+                        data-code="' . $data->code . '"
+                        data-name="' . $data->name . '"
+                        data-price="' . $data->price . '"
+                        data-code_system="' . $data->code_system . '"
+                        data-toggle="modal" data-target="#modal_qrcode"
+                        class="js-modal-qrcode btn btn-dark btn-sm p-btn-sm "><i class="fas fa-sm fa-qrcode"></i></button>
+                        </div>
+                        
+                        
+          ';
                 return $content;
             })
+
             ->make(true);
     }
 
@@ -151,7 +163,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::where('parent_id', 0)->get();
-        
+
         return view('product_edit', compact('categories', 'product'));
     }
 
@@ -166,13 +178,13 @@ class ProductController extends Controller
     {
         // dd($request);
         if ($request->price_financial == 0)
-        $price_financial = $request->price;
+            $price_financial = $request->price;
         else
-        $price_financial = $request->price_financial;
+            $price_financial = $request->price_financial;
 
         $image = $product->image;
-        if($request->image !== 'default/product.png')
-        $image = $request->image;
+        if ($request->image !== 'default/product.png')
+            $image = $request->image;
 
 
         $product->update([
@@ -185,11 +197,11 @@ class ProductController extends Controller
             "price" => $request->price,
             "price_financial" => $price_financial,
         ]);
-        
+
         $colors_ids = [];
         foreach ($request->colors as $color) {
             $relative_color = $product->colors()->where('name', $color['name'])->first();
-            if ( !$relative_color ) {
+            if (!$relative_color) {
                 $relative_color = $product->colors()->create([
                     'name' => $color['name'],
                 ]);
@@ -203,8 +215,8 @@ class ProductController extends Controller
         $boxes_ids = [];
         foreach ($request->boxes as $box) {
             $color = $product->colors()->where('name', $box['color'])->first();
-            if ( $color ) {
-           
+            if ($color) {
+
                 $relative_box = $color->boxes()->updateOrCreate(
                     [
                         'name' => $box['name']
@@ -232,8 +244,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-	session()->flash('msg', 'Successfully done the operation. '); 
-	return redirect()->back();
+        session()->flash('msg', 'Successfully done the operation. ');
+        return redirect()->back();
     }
 
 
@@ -268,10 +280,11 @@ class ProductController extends Controller
             return response()->json(['success' => true, 'result' => '1']);
         }
     }
-    public function get_box_value(Request $request){
-       $product = Product::where('id',$request->product_id)->first();
-       $box = $product->boxes->where('color_id',$request->color_id)->where('name',$request->box_name)->first();
-       if($box)
-       return  $box->value;
+    public function get_box_value(Request $request)
+    {
+        $product = Product::where('id', $request->product_id)->first();
+        $box = $product->boxes->where('color_id', $request->color_id)->where('name', $request->box_name)->first();
+        if ($box)
+            return  $box->value;
     }
 }

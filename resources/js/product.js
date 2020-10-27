@@ -72,6 +72,7 @@ $('#table-products').DataTable({
             data: 'action',
             name: 'action'
         },
+
     ]
 });
 
@@ -225,3 +226,23 @@ $('#table-products-order').DataTable({
 
 
 
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: '0',
+    width: 128,
+    height: 128,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});
+
+$(document).on('click','.js-modal-qrcode',function(){
+ 
+        $('.qr_name').html("نام : <br> " + $(this).attr('data-name'));
+        $('.qr_price').html("قیمت : <br>" + $(this).attr('data-price'));
+        $('.qr_code').html("کد : <br>" + $(this).attr('data-code'));
+        $('.qr_code_system').html("سیستم : <br>" + $(this).attr('data-code_system'));
+        qrcode.clear();
+        qrcode.makeCode($(this).attr('data-code'));
+  
+
+})
