@@ -131,6 +131,12 @@
     }
 
     // Use facingMode: environment to attemt to get the front camera on phones
+
+    navigator.getUserMedia = ( navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia ||
+                       navigator.msGetUserMedia);
+
     navigator.getUserMedia({
       video: {
         facingMode: "environment"
