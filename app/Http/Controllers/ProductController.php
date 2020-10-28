@@ -287,4 +287,14 @@ class ProductController extends Controller
         if ($box)
             return  $box->value;
     }
+
+    public function print(Request $request){
+        $qr_name = $request->get('qr_name');
+        $qr_price = $request->get('qr_price');
+        $qr_code = $request->get('qr_code');
+        $qr_code_system = $request->get('qr_code_system');
+        $count =  $request->get('count');
+
+        return view('print',compact('qr_name','qr_price','qr_code','qr_code_system','count'));
+    }
 }

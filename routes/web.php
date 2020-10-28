@@ -11,6 +11,9 @@ return view('arman');
 });
 
 
+Route::get('/print', 'ProductController@print')->name('print');
+
+
 Route::group(['prefix' => 'boxes' , 'middleware' => 'auth'], function () {
     Route::get('/box_value_count/{box_id}', 'BoxController@box_value_count')->name('boxes.box_value_count');
 });
