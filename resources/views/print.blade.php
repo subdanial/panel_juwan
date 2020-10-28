@@ -101,7 +101,7 @@
             var qrcode ;
             for(i=0;i<={{$count}};i++){
                 qrcode = new QRCode($(".qr_code_div")[i], {
-            text: '0',
+            text: '{{$qr_code}}',
             width: 126,
             height: 126,
             colorDark : "#000000",
