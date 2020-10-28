@@ -73,17 +73,19 @@
                     </div>
                     <div class="data">
                         <span class="code d-block">
-                            10500400115
+                           {{$qr_code}}
                         </span>
                         <span class="code-system d-block">
-                            24104156176
+                            {{$qr_code_system}}
                         </span>
-                        <span class="code-system d-block">
-                            800,000,000
+                        <span class="price d-block">
+                            {{$qr_pirce}}
                         </span>
                     </div>
                 </div>
-                <div class="name text-center d-block mx-auto w-100">شلوار کتان mossimo dutti</div>
+                <div class="name text-center d-block mx-auto w-100">
+                    {{$qr_name}}
+                </div>
             </div>
         </div>
         </div>
