@@ -79,7 +79,7 @@
                             {{$qr_code_system}}
                         </span>
                         <span class="price d-block">
-                            {{$qr_pirce}}
+                            {{$qr_price}}
                         </span>
                     </div>
                 </div>
