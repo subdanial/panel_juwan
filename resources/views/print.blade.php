@@ -27,7 +27,10 @@
 
 
     }
+*{
+    font-weight: 900!important;
 
+}
     .line {
         margin-left: 288px;
         margin-bottom: 8px;
