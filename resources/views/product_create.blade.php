@@ -62,6 +62,16 @@
                         </tr>
                         <tr>
                             <td>
+                                <span>نام سیستمی</span>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name_system" id="" >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <span>قیمت</span>
                             </td>
                             <td>
@@ -494,6 +504,7 @@ $("#product_add_form").on('submit', function (e) {
     product.code_system = $("input[name='code_system']").val();
     
     product.name = $("input[name='name']").val();
+    product.name_system = $("input[name='name_system']").val();
     product.price = $("input[name='price']").val();
     product.price_financial = $("input[name='price_financial']").val();
     product.sizes = sizes;

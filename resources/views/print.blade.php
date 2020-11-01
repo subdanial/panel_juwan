@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="name text-center d-block mx-auto mt-2 w-100">
-                {{$qr_name}}
+                {{$qr_name_system}}
             </div>
     </div>
     @endfor

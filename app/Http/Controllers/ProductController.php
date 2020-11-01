@@ -47,7 +47,7 @@ class ProductController extends Controller
                         
                         id="' . $data->id . '"
                         data-code="' . $data->code . '"
-                        data-name="' . $data->name . '"
+                        data-name_system="' . $data->name_system . '"
                         data-price="' . $data->price . '"
                         data-code_system="' . $data->code_system . '"
                         data-toggle="modal" data-target="#modal_qrcode"
@@ -117,6 +117,7 @@ class ProductController extends Controller
                 "code" => $request->code,
                 "code_system" => $request->code_system,
                 "name" => $request->name,
+                "name_system" => $request->name_system,
                 "image" => $request->image,
                 "sizes" => json_encode($request->sizes),
                 "price" => $request->price,
@@ -192,6 +193,7 @@ class ProductController extends Controller
             "code" => $request->code,
             "code_system" => $request->code_system,
             "name" => $request->name,
+            "name_system" => $request->name_system,
             "image" => $image,
             "sizes" => json_encode($request->sizes),
             "price" => $request->price,
@@ -289,12 +291,12 @@ class ProductController extends Controller
     }
 
     public function print(Request $request){
-        $qr_name = $request->get('qr_name');
+        $qr_name_system = $request->get('qr_name_system');
         $qr_price = $request->get('qr_price');
         $qr_code = $request->get('qr_code');
         $qr_code_system = $request->get('qr_code_system');
         $count =  $request->get('count');
 
-        return view('print',compact('qr_name','qr_price','qr_code','qr_code_system','count'));
+        return view('print',compact('qr_name_system','qr_price','qr_code','qr_code_system','count'));
     }
 }

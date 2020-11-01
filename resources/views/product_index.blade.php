@@ -25,8 +25,8 @@
                             <table class="table d-block mx-auto table-borderless pr-3 text-center ">
                                 <tr>
                                     <td>
-                                        <span class="qr_name"></span>
-                                        <input type="hidden" class="qr_name" name="qr_name">
+                                        <span class="qr_name_system"></span>
+                                        <input type="hidden" class="qr_name_system" name="qr_name_system">
                                     </td>
                                     <td>
                                         <span class="qr_price"></span>
@@ -119,12 +119,12 @@
            });
 
         $(document).on('click','.js-modal-qrcode',function(){
-            $('.qr_name').html("نام : <br> " + $(this).attr('data-name'));
+            $('.qr_name_system').html("نام : <br> " + $(this).attr('data-name_system'));
             $('.qr_price').html("قیمت : <br>" + $(this).attr('data-price'));
             $('.qr_code').html("کد : <br>" + $(this).attr('data-code'));
             $('.qr_code_system').html("سیستم : <br>" + $(this).attr('data-code_system'));
 
-            $('.qr_name').val($(this).attr('data-name'));
+            $('.qr_name_system').val($(this).attr('data-name_system'));
             $('.qr_price').val($(this).attr('data-price'));
             $('.qr_code').val($(this).attr('data-code'));
             $('.qr_code_system').val($(this).attr('data-code_system'));
