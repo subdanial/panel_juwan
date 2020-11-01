@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css' rel='stylesheet' type='text/css'>
 </head>
 <style>
     @page {
@@ -27,86 +28,68 @@
 
 
     }
-*{
-    font-weight: 900!important;
 
-}
-    .line {
-        margin-left: 288px;
-        margin-bottom: 8px;
+    * {
+        font-family: Vazir;
+        font-size: 0.88rem;
     }
 
-    .qrcode {
 
-        width: calc(132px * 2);
-        height: calc(94px* 2);
+    .label {
+        margin-right: 2mm;
+        margin-left: 2mm;
+        margin-top: 1.55mm;
+        margin-bottom: 1.55mm;
+        font-weight: 900;
+        width: 5cm;
+        height: 3cm;
         border: 1px solid black;
-        font-size: calc(0.6rem * 2);
-        margin-right: calc(8px * 2);
     }
 
-    .qr-image {
-        margin: 5px;
-        height: calc(63px * 2);
-    }
-
-    .code {
-        margin-top: calc(1px * 2);
-
-    }
-
-    .name {
-        padding-top: calc(2px * 2);
-        font-size: calc(0.65rem * 2);
-
-    }
-
-    .data {
-        margin-left: 5px;
+    .#qrcode {
+        height: 24mm !important;
     }
 </style>
 
 <body>
-    @for ($i = 0; $i <= $count; $i++) <div class="line">
-        <div class="d-flex for-col ">
-            <div class="qrcode">
-                <div class="d-flex ">
-                    <div class="qr-image">
-                        <div id="qrcode" class="qr_code_div"></div>
-                    </div>
-                    <div class="data">
-                        <span class="code d-block">
-                           {{$qr_code}}
-                        </span>
-                        <span class="code-system d-block">
-                            {{$qr_code_system}}
-                        </span>
-                        <span class="price d-block">
-                            {!!number_format($qr_price)!!}
-                        </span>
-                    </div>
+    <div class="ml-4 mt-3 d-flex flex-wrap" style="width: 25cm">
+        @for ($i = 0; $i <= $count; $i++) 
+        <div class="label text-right">
+            <div class="d-flex justify-content-between">
+                <div class="qr-image">
+                    <div id="qrcode" class="qr_code_div"></div>
                 </div>
-                <div class="name text-center d-block mx-auto w-100">
-                    {{$qr_name}}
+                <div class="data p-1">
+                    <span class="code d-block">
+                        {{$qr_code}}
+                    </span>
+                    <span class="code-system d-block">
+                        {{$qr_code_system}}
+                    </span>
+                    <span class="price d-block">
+                        {!!number_format($qr_price)!!}
+                    </span>
                 </div>
             </div>
-        </div>
-        </div>
+            <div class="name text-center d-block mx-auto mt-2 w-100">
+                {{$qr_name}}
+            </div>
+    </div>
+    @endfor
+    </div>
 
-        @endfor
 
 
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/qrcode.min.js')}}"></script>
 
-        <script src="{{asset('js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/qrcode.min.js')}}"></script>
-
-        <script>
-            var qrcode ;
+    <script>
+        var qrcode ;
             for(i=0;i<={{$count}};i++){
                 qrcode = new QRCode($(".qr_code_div")[i], {
             text: '{{$qr_code}}',
-            width: 126,
-            height: 126,
+            width: 80,
+            height: 80,
             colorDark : "#000000",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H
@@ -117,7 +100,7 @@
     //  qrcode.makeCode($(this).attr('data-code'));
   
         
-        </script>
+    </script>
 
 
 </body>
