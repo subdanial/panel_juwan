@@ -317,6 +317,7 @@
 <script>
     AutoNumeric.multiple('.js_autonumeric',{
         unformatOnSubmit: true,
+        allowDecimalPadding:false,
           });
    
 </script>
