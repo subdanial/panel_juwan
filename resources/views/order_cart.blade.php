@@ -175,7 +175,7 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">تخیف:</label>
-                        <input type="text" class="form-control js-auto-numeric" name="discount">
+                        <input type="text" class="form-control js_autonumeric" name="discount">
                     </div>
                 </div>
                 <div class="col-6">
