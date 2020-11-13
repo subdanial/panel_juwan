@@ -7,6 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('fontawesome/css/all.min.css')}}">
+    
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('node_modules/autonumeric/dist/autoNumeric.min.js')}}"></script>
 
 </head>
 {{-- @auth --}}

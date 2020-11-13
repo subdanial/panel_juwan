@@ -48,7 +48,7 @@
                         <th>فی</th>
                         <th>قیمت</th>
                         <th>عملیلات</th>
-                        </tr>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach ($order->items as $counter => $item)
@@ -57,7 +57,9 @@
                         <td scope="row">{{ $counter+1 }}</td>
                         <td>{{ $item->product ? $item->product->code : $item->product_id }}</td>
                         <td>
-                        <a class="text-dark" data-caption=" {{$item->product_name}} | کد : {{$item->product_code}} " data-fancybox="gallery" href="{{asset('/upload/'.$item->product_image)}}">{{ $item->product_name }}</a>
+                            <a class="text-dark" data-caption=" {{$item->product_name}} | کد : {{$item->product_code}} "
+                                data-fancybox="gallery"
+                                href="{{asset('/upload/'.$item->product_image)}}">{{ $item->product_name }}</a>
                         </td>
                         <td>{{ $item->product_color }}</td>
                         <td>{{ $item->box_name }} تایی</td>
@@ -65,8 +67,8 @@
                         <td>{{ $item->count_total }} </td>
                         <td>{{ number_format( $item->product_price ) }}</td>
                         <td>{{ number_format( $item->product_price_total ) }}</td>
-                                      <td><button class="btn btn-sm item-delete text-center  btn-dark" id="{{$item->id}}"><i
-                        class="fa fa-trash align-middle"></i></button></td>
+                        <td><button class="btn btn-sm item-delete text-center  btn-dark" id="{{$item->id}}"><i
+                                    class="fa fa-trash align-middle"></i></button></td>
                     </tr>
                     @endforeach
                 <tfoot>
@@ -89,13 +91,13 @@
             <form action="{{route('orders.status_set_temporary')}}" class="d-inline">
                 <input type="hidden" name="order_id" value="{{$order->id}}">
                 <button type="submit" class="btn btn-sm btn-outline-dark d-inline">تبدیل به سبد موقت
-                    <i class="fa fa-shopping-bag " aria-hidden="true"></i>
+                    <i class="fa fa-shopping-bag"></i>
                 </button>
             </form>
             <form action="{{route('orders.destroy',$order->id)}}" class="d-inline">
                 <input type="hidden" name="order_id" value="{{$order->id}}">
                 <button type="submit" class="btn btn-sm btn-outline-danger d-inline">حذف سبد
-                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <i class="fa fa-trash"></i>
                 </button>
             </form>
 
@@ -135,27 +137,28 @@
 
                 <div class="col-4">
                     <div class="form-group">
+
                         <label for="">وجه نقد:</label>
-                        <input type="number" class="form-control js-auto-numeric" name="cash" id="">
+                        <input type="text" class="form-control js_autonumeric" name="cash">
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">کارت خوان:</label>
-                        <input type="number" class="form-control js-auto-numeric" name="pos" id="">
+                        <input type="text" class="form-control js_autonumeric" name="pos">
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">چک:</label>
-                        <input type="number" class="form-control js-auto-numeric" name="cheque" id="">
+                        <input type="text" class="form-control js_autonumeric" name="cheque">
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">مانده حساب:</label>
-                        <input type="text" class="form-control js-auto-numeric text-right" dir="ltr"
-                            value="{{$client->balance}}" name="balance" id="balance" disabled>
+                        <input type="text" class="form-control  text-right" dir="ltr" value="{{$client->balance}}"
+                            name="balance" id="balance" disabled>
 
                     </div>
                 </div>
@@ -172,7 +175,7 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">تخیف:</label>
-                        <input type="text" class="form-control js-auto-numeric" name="discount" id="">
+                        <input type="text" class="form-control js-auto-numeric" name="discount">
                     </div>
                 </div>
                 <div class="col-6">
@@ -193,7 +196,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">توضیح :</label>
-                        <textarea class="form-control" name="description" id="" rows="3"></textarea>
+                        <textarea class="form-control" name="description" rows="3"></textarea>
                     </div>
                     <button type="submit" class="submit_buy_order btn btn-dark float-left" href="#" role="button"> ثبت
                         سفارش <i class="fa fa-briefcase"></i>
@@ -221,6 +224,9 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">مبلغ مرجوعی</label>
+
+
+
                                 <input type="number" class="form-control " name="amount_returned"
                                     placeholder="{{ number_format( $order->items()->sum('product_price_total') ) }}">
                                 <small class="form-text text-muted ">مقدار پیشفرض فیلد خالی مجموع فاکتوراست</small>
@@ -255,7 +261,7 @@
 
                     <div class="form-group">
                         <label for="">توضیح مرجوعی : <strong class="text-danger">در فاکتور درج میشود</strong></label>
-                        <textarea class="form-control" name="" id="" rows="7"
+                        <textarea class="form-control" name="" rows="7"
                             placeholder="لطفا کد فاکتور مرجع مرجوعی و علت مرجوعی را درج کنید."></textarea>
                     </div>
                 </div>
@@ -307,5 +313,12 @@
 
 
 </div>
+
+<script>
+    AutoNumeric.multiple('.js_autonumeric',{
+        unformatOnSubmit: true,
+          });
+   
+</script>
 
 @endsection

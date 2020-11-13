@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost',
+    'url' => 'http://pan.test',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:P6xpKxd3SLxgWfL5ahewFJikqlaf+rS05R8SIndH+V8=',
+    'key' => 'base64:KZ/d8dEo+ZI+vFGoHFk721BUmdV1g6vtsEwpnLVYEVo=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -184,7 +184,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Laragon\\www\\juwan\\storage\\framework/cache/data',
+        'path' => 'C:\\Laragon\\www\\pan\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -400,13 +400,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Laragon\\www\\juwan\\storage\\app',
+        'root' => 'C:\\Laragon\\www\\pan\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Laragon\\www\\juwan\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => 'C:\\Laragon\\www\\pan\\storage\\app/public',
+        'url' => 'http://pan.test/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -422,7 +422,7 @@
     ),
     'links' => 
     array (
-      'C:\\Laragon\\www\\juwan\\public\\storage' => 'C:\\Laragon\\www\\juwan\\storage\\app/public',
+      'C:\\Laragon\\www\\pan\\public\\storage' => 'C:\\Laragon\\www\\pan\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -456,13 +456,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Laragon\\www\\juwan\\storage\\logs/laravel.log',
+        'path' => 'C:\\Laragon\\www\\pan\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Laragon\\www\\juwan\\storage\\logs/laravel.log',
+        'path' => 'C:\\Laragon\\www\\pan\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -512,7 +512,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Laragon\\www\\juwan\\storage\\logs/laravel.log',
+        'path' => 'C:\\Laragon\\www\\pan\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -569,7 +569,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Laragon\\www\\juwan\\resources\\views/vendor/mail',
+        0 => 'C:\\Laragon\\www\\pan\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -648,7 +648,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Laragon\\www\\juwan\\storage\\framework/sessions',
+    'files' => 'C:\\Laragon\\www\\pan\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -668,9 +668,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Laragon\\www\\juwan\\resources\\views',
+      0 => 'C:\\Laragon\\www\\pan\\resources\\views',
     ),
-    'compiled' => 'C:\\Laragon\\www\\juwan\\storage\\framework\\views',
+    'compiled' => 'C:\\Laragon\\www\\pan\\storage\\framework\\views',
   ),
   'ide-helper' => 
   array (
@@ -684,7 +684,7 @@
     'include_helpers' => false,
     'helper_files' => 
     array (
-      0 => 'C:\\Laragon\\www\\juwan/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+      0 => 'C:\\Laragon\\www\\pan/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ),
     'model_locations' => 
     array (
