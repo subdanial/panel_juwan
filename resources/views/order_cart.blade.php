@@ -227,7 +227,7 @@
 
 
 
-                                <input type="number" class="form-control " name="amount_returned"
+                                <input type="text" class="form-control js_autonumeric" name="amount_returned"
                                     placeholder="{{ number_format( $order->items()->sum('product_price_total') ) }}">
                                 <small class="form-text text-muted ">مقدار پیشفرض فیلد خالی مجموع فاکتوراست</small>
                             </div>
