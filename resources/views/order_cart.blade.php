@@ -157,7 +157,7 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label for="">مانده حساب:</label>
-                        <input type="text" class="form-control  text-right" dir="ltr" value="{{$client->balance}}"
+                        <input type="text" class="form-control  js_autonumeric text-right" dir="ltr" value="{{$client->balance}}"
                             name="balance" id="balance" disabled>
 
                     </div>
