@@ -235,7 +235,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">مانده حساب:</label>
-                                <input type="text" class="form-control js-auto-numeric text-right" dir="ltr"
+                                <input type="text" class="form-control js_autonumeric text-right" dir="ltr"
                                     value="{{$client->balance}}" name="balance" id="balance" disabled>
                                 <small class="form-text text-muted ">مبلغ مرجوعی از مانده مشتری کسر میشود</small>
 
