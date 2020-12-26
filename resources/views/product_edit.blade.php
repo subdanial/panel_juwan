@@ -548,6 +548,7 @@ $("#product_update_form").on('submit', function (e) {
             value: $(this).val()
         })
     })
+
     //---Reqire Validator Test---//
     $(document).find('input').each(function () {
         if ($(this).val() == "" && $(this).attr('type') !== 'file') {
@@ -602,7 +603,7 @@ $("#product_update_form").on('submit', function (e) {
     if (item_is_valid && input_is_valid && color_is_valid && size_is_valid && box_is_valid ) {
         // console.log(product);
         $.ajax({
-            // type: "POST",
+            type: "POST",
             url: "/products/update/{{$product->id}}",
             data: product,
             dataType: "json",
@@ -624,8 +625,8 @@ $("#product_update_form").on('submit', function (e) {
         alert('فیلد هارا بررسی کنید');
     }
 });
-    $('.items_submit').click();
-    $('.items_submit').click();
-    </script>
-    @endsection
+$('.items_submit').click();
+$('.items_submit').click();
+</script>
+@endsection
     

@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'Juwan',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://pan.test',
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:KZ/d8dEo+ZI+vFGoHFk721BUmdV1g6vtsEwpnLVYEVo=',
+    'key' => 'base64:7dpLxIn5h9b3WQTZtJz8o6fuzyfRDSirdyzPPiMLLSE=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -184,7 +184,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Laragon\\www\\pan\\storage\\framework/cache/data',
+        'path' => 'C:\\laragon\\www\\jw\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -223,7 +223,7 @@
         'endpoint' => NULL,
       ),
     ),
-    'prefix' => 'laravel_cache',
+    'prefix' => 'juwan_cache',
   ),
   'cors' => 
   array (
@@ -321,7 +321,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'juwan_database_',
       ),
       'default' => 
       array (
@@ -400,13 +400,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Laragon\\www\\pan\\storage\\app',
+        'root' => 'C:\\laragon\\www\\jw\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Laragon\\www\\pan\\storage\\app/public',
-        'url' => 'http://pan.test/storage',
+        'root' => 'C:\\laragon\\www\\jw\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -422,7 +422,7 @@
     ),
     'links' => 
     array (
-      'C:\\Laragon\\www\\pan\\public\\storage' => 'C:\\Laragon\\www\\pan\\storage\\app/public',
+      'C:\\laragon\\www\\jw\\public\\storage' => 'C:\\laragon\\www\\jw\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -456,13 +456,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Laragon\\www\\pan\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\jw\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Laragon\\www\\pan\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\jw\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -512,7 +512,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Laragon\\www\\pan\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\jw\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -562,14 +562,14 @@
     'from' => 
     array (
       'address' => NULL,
-      'name' => 'Laravel',
+      'name' => 'Juwan',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Laragon\\www\\pan\\resources\\views/vendor/mail',
+        0 => 'C:\\laragon\\www\\jw\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -648,7 +648,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Laragon\\www\\pan\\storage\\framework/sessions',
+    'files' => 'C:\\laragon\\www\\jw\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -657,7 +657,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'juwan_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
@@ -668,9 +668,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Laragon\\www\\pan\\resources\\views',
+      0 => 'C:\\laragon\\www\\jw\\resources\\views',
     ),
-    'compiled' => 'C:\\Laragon\\www\\pan\\storage\\framework\\views',
+    'compiled' => 'C:\\laragon\\www\\jw\\storage\\framework\\views',
   ),
   'ide-helper' => 
   array (
@@ -684,7 +684,7 @@
     'include_helpers' => false,
     'helper_files' => 
     array (
-      0 => 'C:\\Laragon\\www\\pan/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+      0 => 'C:\\laragon\\www\\jw/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ),
     'model_locations' => 
     array (

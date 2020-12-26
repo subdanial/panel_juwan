@@ -50,7 +50,7 @@ Route::group(['prefix' => 'products' , 'middleware' => 'auth'], function () {
     Route::get('/create', 'ProductController@create')->name('products.create');
     Route::get('/edit/{product}', 'ProductController@edit')->name('products.edit');
     Route::get('/destroy/{product}', 'ProductController@destroy')->name('products.destroy');
-    Route::get('/update/{product}', 'ProductController@update')->name('products.update');
+    Route::post('/update/{product}', 'ProductController@update')->name('products.update');
     Route::post('/upload', 'ProductController@upload')->name('products.upload');
     Route::post('/store', 'ProductController@store')->name('products.store');
 

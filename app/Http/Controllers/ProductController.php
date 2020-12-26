@@ -8,6 +8,7 @@ use App\Product;
 use Exception;
 use Image;
 use Illuminate\Http\Request;
+use League\CommonMark\Inline\Element\Code;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
@@ -177,7 +178,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        // dd($request);
         if ($request->price_financial == 0)
             $price_financial = $request->price;
         else
@@ -186,7 +186,6 @@ class ProductController extends Controller
         $image = $product->image;
         if ($request->image !== 'default/product.png')
             $image = $request->image;
-
 
         $product->update([
             'category_id' => $request->category_id,
@@ -202,10 +201,10 @@ class ProductController extends Controller
 
         $colors_ids = [];
         foreach ($request->colors as $color) {
-            $relative_color = $product->colors()->where('name', $color['name'])->first();
+            $relative_color = $product->colors()->where('name', $color['name']['value'])->first();
             if (!$relative_color) {
                 $relative_color = $product->colors()->create([
-                    'name' => $color['name'],
+                    'name' => $color['name']['value'],
                 ]);
             }
 
