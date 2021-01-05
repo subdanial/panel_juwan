@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Juwan',
-    'env' => 'local',
-    'debug' => true,
+    'name' => 'Laravel',
+    'env' => 'production',
+    'debug' => false,
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:7dpLxIn5h9b3WQTZtJz8o6fuzyfRDSirdyzPPiMLLSE=',
+    'key' => NULL,
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -131,18 +131,18 @@
   ),
   'broadcasting' => 
   array (
-    'default' => 'log',
+    'default' => 'null',
     'connections' => 
     array (
       'pusher' => 
       array (
         'driver' => 'pusher',
-        'key' => '',
-        'secret' => '',
-        'app_id' => '',
+        'key' => NULL,
+        'secret' => NULL,
+        'app_id' => NULL,
         'options' => 
         array (
-          'cluster' => 'mt1',
+          'cluster' => NULL,
           'useTLS' => true,
         ),
       ),
@@ -184,7 +184,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\laragon\\www\\jw\\storage\\framework/cache/data',
+        'path' => 'C:\\laragon\\www\\j\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -216,14 +216,14 @@
       'dynamodb' => 
       array (
         'driver' => 'dynamodb',
-        'key' => '',
-        'secret' => '',
+        'key' => NULL,
+        'secret' => NULL,
         'region' => 'us-east-1',
         'table' => 'cache',
         'endpoint' => NULL,
       ),
     ),
-    'prefix' => 'juwan_cache',
+    'prefix' => 'laravel_cache',
   ),
   'cors' => 
   array (
@@ -261,7 +261,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'panel',
+        'database' => 'C:\\laragon\\www\\j\\database\\database.sqlite',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -271,8 +271,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'panel',
-        'username' => 'root',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -290,9 +290,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
-        'database' => 'panel',
-        'username' => 'root',
+        'port' => '5432',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -304,10 +304,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '127.0.0.1',
-        'port' => '3306',
-        'database' => 'panel',
-        'username' => 'root',
+        'host' => 'localhost',
+        'port' => '1433',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -321,7 +321,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'juwan_database_',
+        'prefix' => 'laravel_database_',
       ),
       'default' => 
       array (
@@ -400,29 +400,29 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\laragon\\www\\jw\\storage\\app',
+        'root' => 'C:\\laragon\\www\\j\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\laragon\\www\\jw\\storage\\app/public',
-        'url' => 'http://localhost/storage',
+        'root' => 'C:\\laragon\\www\\j\\storage\\app/public',
+        'url' => '/storage',
         'visibility' => 'public',
       ),
       's3' => 
       array (
         'driver' => 's3',
-        'key' => '',
-        'secret' => '',
-        'region' => 'us-east-1',
-        'bucket' => '',
+        'key' => NULL,
+        'secret' => NULL,
+        'region' => NULL,
+        'bucket' => NULL,
         'url' => NULL,
         'endpoint' => NULL,
       ),
     ),
     'links' => 
     array (
-      'C:\\laragon\\www\\jw\\public\\storage' => 'C:\\laragon\\www\\jw\\storage\\app/public',
+      'C:\\laragon\\www\\j\\public\\storage' => 'C:\\laragon\\www\\j\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -456,13 +456,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\laragon\\www\\jw\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\j\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\laragon\\www\\jw\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\j\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -512,7 +512,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\laragon\\www\\jw\\storage\\logs/laravel.log',
+        'path' => 'C:\\laragon\\www\\j\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -524,9 +524,9 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => NULL,
+        'host' => 'smtp.mailgun.org',
+        'port' => 587,
+        'encryption' => 'tls',
         'username' => NULL,
         'password' => NULL,
         'timeout' => NULL,
@@ -561,15 +561,15 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'Juwan',
+      'address' => 'hello@example.com',
+      'name' => 'Example',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\laragon\\www\\jw\\resources\\views/vendor/mail',
+        0 => 'C:\\laragon\\www\\j\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -600,8 +600,8 @@
       'sqs' => 
       array (
         'driver' => 'sqs',
-        'key' => '',
-        'secret' => '',
+        'key' => NULL,
+        'secret' => NULL,
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
         'queue' => 'your-queue-name',
         'suffix' => NULL,
@@ -637,18 +637,18 @@
     ),
     'ses' => 
     array (
-      'key' => '',
-      'secret' => '',
+      'key' => NULL,
+      'secret' => NULL,
       'region' => 'us-east-1',
     ),
   ),
   'session' => 
   array (
     'driver' => 'file',
-    'lifetime' => '120',
+    'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\laragon\\www\\jw\\storage\\framework/sessions',
+    'files' => 'C:\\laragon\\www\\j\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -657,7 +657,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'juwan_session',
+    'cookie' => 'laravel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
@@ -668,9 +668,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\laragon\\www\\jw\\resources\\views',
+      0 => 'C:\\laragon\\www\\j\\resources\\views',
     ),
-    'compiled' => 'C:\\laragon\\www\\jw\\storage\\framework\\views',
+    'compiled' => 'C:\\laragon\\www\\j\\storage\\framework\\views',
   ),
   'ide-helper' => 
   array (
@@ -684,7 +684,7 @@
     'include_helpers' => false,
     'helper_files' => 
     array (
-      0 => 'C:\\laragon\\www\\jw/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+      0 => 'C:\\laragon\\www\\j/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
     ),
     'model_locations' => 
     array (
