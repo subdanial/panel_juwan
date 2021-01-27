@@ -19,6 +19,10 @@ $('#table_order').DataTable({
     processing: true,
     serverSide: true,
     ajax: {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "post",
         url: "/orders/table",
     },
     columns: [{
@@ -207,6 +211,10 @@ $('#table_order_anbaar').DataTable({
     processing: true,
     serverSide: true,
     ajax: {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "post",
         url: "/orders/table",
     },
     columns: [{
@@ -327,6 +335,10 @@ $('#table_order_foroosh').DataTable({
     processing: true,
     serverSide: true,
     ajax: {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "post",
         url: "/orders/table_foroosh",
     },
     columns: [{
@@ -473,6 +485,10 @@ $('#table_order_temporary').DataTable({
     processing: true,
     serverSide: true,
     ajax: {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "post",
         url: "/orders/table_temporary",
     },
     columns: [{
@@ -515,6 +531,10 @@ $('#table_pre_invoice').DataTable({
     processing: true,
     serverSide: true,
     ajax: {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "post",
         url: "/orders/table_pre_invoice",
     },
     columns: [{

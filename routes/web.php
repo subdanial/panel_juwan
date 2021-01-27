@@ -64,7 +64,7 @@ Route::group(['prefix' => 'products' , 'middleware' => 'auth'], function () {
 
 Route::group(['prefix' => 'orders' , 'middleware' => 'auth'], function () {
     Route::get('/', 'OrderController@index')->name('orders.index');
-    Route::get('/table', 'OrderController@table')->name('orders.table');
+    Route::post('/table', 'OrderController@table')->name('orders.table');
     Route::get('/show/{order}', 'OrderController@show')->name('orders.show');
     Route::get('/create', 'OrderController@create')->name('orders.create');
     Route::get('/edit/{order}', 'OrderController@edit')->name('orders.edit');
@@ -78,11 +78,11 @@ Route::group(['prefix' => 'orders' , 'middleware' => 'auth'], function () {
     Route::get('/show_pre_invoice/{order}', 'OrderController@show_pre_invoice')->name('orders.show_pre_invoice');
     Route::post('/fetch', 'OrderController@fetch')->name('orders.fetch');
     Route::post('/upload', 'OrderController@upload')->name('orders.upload');
-    Route::get('/table_foroosh', 'OrderController@table_foroosh')->name('orders.table_foroosh');
+    Route::post('/table_foroosh', 'OrderController@table_foroosh')->name('orders.table_foroosh');
     Route::get('/index_foroosh', 'OrderController@index_foroosh')->name('orders.index_foroosh');
-    Route::get('/table_temporary', 'OrderController@table_temporary')->name('orders.table_temporary');
+    Route::post('/table_temporary', 'OrderController@table_temporary')->name('orders.table_temporary');
     Route::get('/index_temporary', 'OrderController@index_temporary')->name('orders.index_temporary');
-    Route::get('/table_pre_invoice', 'OrderController@table_pre_invoice')->name('orders.table_pre_invoice');
+    Route::post('/table_pre_invoice', 'OrderController@table_pre_invoice')->name('orders.table_pre_invoice');
     Route::get('/index_pre_invoice', 'OrderController@index_pre_invoice')->name('orders.index_pre_invoice');
     Route::get('/cart', 'OrderController@cart')->name('orders.cart');
     Route::get('/status_set_temporary', 'OrderController@status_set_temporary')->name('orders.status_set_temporary');
