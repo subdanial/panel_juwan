@@ -13,15 +13,18 @@ class MarketerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function table(Request $request){
-        $marketers = User::where('role','3')->get();
+        // 1 maali 
+        // 3 foroosh
+        // 2 anbar
+        $marketers = User::where('role','1')->orWhere('role','3')->orWhere('role','2')->get();
         if($request->ajax())
         {
             return DataTables::of($marketers)
             ->addColumn('actions', function($data){
                 $content ='
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-dark btn-sm btn-marketer-modal" data-action="delete" id="'.$data->id.'"><i class="fas fa-trash"></i></button>
-                <button type="button" class="btn btn-dark btn-sm btn-marketer-modal" data-action="edit" id="'.$data->id.'"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-dark btn-sm btn-marketer-modal" data-action="delete" id="'.$data->id.'" data-user-role="'.$data->role.'"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn btn-dark btn-sm btn-marketer-modal" data-action="edit" id="'.$data->id.'" data-user-role="'.$data->role.'"><i class="fas fa-edit"></i></button>
                 </div>';
                         return $content;
             })
@@ -32,7 +35,8 @@ class MarketerController extends Controller
     }
     public function index()
     {
-        return view('marketers');
+        $user =  auth()->user()->first();
+        return view('marketers',compact('user'));
     }
     /**
      * Show the form for creating a new resource.
@@ -61,6 +65,15 @@ class MarketerController extends Controller
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'min:8',
         ]);
+
+        $access = json_encode(array(
+            "view_user"=> 1,
+            "view_clients"=> 0,
+            "view_category"=> 0,
+            "view_products"=> 0,
+            "view_orders"=> 0,
+        ));
+
         $marketer = new User([
                 'username'=>$request->get('username'),
                 'name'=>$request->get('name'),
@@ -68,10 +81,11 @@ class MarketerController extends Controller
                 'phone'=>$request->get('phone'),
                 'role'=>$request->get('role'),
                 'password'=>Hash::make($request->get('password')),
+                'no_access'=>$access,
         ]);
 
             $marketer->save();
-            $msg = "فروشنده جدید با موفقیت ثبت شد";
+            $msg = "کاربر جدید با موفقیت ثبت شد";
             $request->session()->flash('msg', $msg);
             return redirect()->route('marketers.index');
       
@@ -147,7 +161,27 @@ class MarketerController extends Controller
         
         User::whereId($request->marketer_hidden_id)->update($form_data);
 
-        $msg = "فروشنده به روزرسانی شد";
+
+        //access manager
+ 
+
+
+
+     
+        $access = array(
+            "view_user"=> $request->view_user ? $request->view_user : 1 ,
+            "view_clients"=> $request->view_clients ? $request->view_clients : 0 ,
+            "view_category"=> $request->view_category ? $request->view_category : 0 ,
+            "view_products"=> $request->view_products ? $request->view_products : 0 ,
+            "view_orders"=> $request->view_orders ? $request->view_orders : 0 ,
+        );
+        $no_access = array(
+            'no_access'=>$access
+        );
+        User::whereId($request->marketer_hidden_id)->update($no_access);
+
+
+        $msg = "کاربر به روزرسانی شد";
         $request->session()->flash('msg', $msg);
         return redirect()->route('marketers.index'); 
 
@@ -161,7 +195,7 @@ class MarketerController extends Controller
     public function destroy(Request $request)
     {
          User::where('id','=',$request->hidden_delete_id)->delete();
-         $msg = "فروشنده حذف ";
+         $msg = "کاربر حذف ";
          $request->session()->flash('msg', $msg);
          return redirect()->route('marketers.index'); 
     }

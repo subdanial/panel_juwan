@@ -2,84 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Box;
 use App\Item;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function get_item_values(Request $request)
     {
-        //
+        $id = $request->get('id');
+        $item = new Item();
+        $result =     $item->where('id', $id)->first();
+        return ($result);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function get_box(Request $request)
     {
-        //
+        $id = $request->get('id');
+        $item = new Item();
+        $result = $item->where('id', $id)->first();
+        $box_id = $result->box_id;
+        $box = new Box;
+        $selected_box = $box->where('id', $box_id)->first();
+        return ($selected_box);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Item $item)
+    public function update_item(Request $request)
     {
-        //
-    }
+        $item = new Item();
+        $selected_item  = $item->where('id', $request->id)->first();
+        $new_count = $request->new_count;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $item)
-    {
-        //
-    }
+        $selected_item->update([
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Item $item)
-    {
-        //
-    }
+            'product_price' => $selected_item->product_price,
+            'product_price_total' =>  $selected_item->product_price * $selected_item->box_name * $new_count,
+            'product_price_financial' => $selected_item->product_price_financial,
+            'product_price_total_financial' => $selected_item->product_price_financial * $selected_item->box_name * $new_count,
+            'count' => $new_count,
+            'count_total' => $new_count * intval($selected_item->box_name),
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Item $item)
-    {
-        //
+        ]);
     }
 }

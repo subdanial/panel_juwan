@@ -1,14 +1,11 @@
 @extends('layout.app')
 @section('content')
-
-
-
 {{-- modal-delete --}}
 <div class="modal fade" id="marketer-modal-delete" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">حذف مشتری</h5>
+                <h5 class="modal-title">حذف کاربر</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span>&times;</span>
                 </button>
@@ -16,7 +13,7 @@
             <form action="/marketers/destroy">
                 <input type="hidden" name="hidden_delete_id" class="hidden_delete_id">
                 <div class="modal-body">
-                    آیا از حذف این فروشنده مطمئنید
+                    آیا از حذف این کاربر مطمئنید
                 </div>
                 <div class="modal-footer">
                     <div class="float-right w-100">
@@ -28,9 +25,6 @@
         </div>
     </div>
 </div>
-
-
-
 {{-- modal-edit-add --}}
 <div class="modal fade" id="marketer-modal" tabindex="-1">
     <form class="marketer-modal-form" method="post" action="">
@@ -43,9 +37,7 @@
                         <span>&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
-                    <input type="hidden" name="role" id="role" value="3">
                     <input type="hidden" name="marketer_hidden_id" id="marketer_hidden_id">
                     <div class="delete-hidden">
                         <div class="form-row mt-2">
@@ -80,13 +72,24 @@
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
                         </div>
+                        <div class="form-row mt-2">
+                            <div class="col-3">
+                                <label class="d-block pt-2">نوع کاربر</label>
+                            </div>
+                            <div class="col-9">
+                                <select class="form-control" name="role" id="role">
+                                    <option value="1" selected>مالی</option>
+                                    <option value="2">انبار</option>
+                                    <option value="3">فروشنده</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="edit-show">
                             <hr>
-                            <small class="text-center text-secondary w-100 d-block"> اگر قصد ندارید رمز عبور فروشنده
+                            <small class="text-center text-secondary w-100 d-block"> اگر قصد ندارید رمز عبور کاربر
                                 تغییر کند فیلد های پسورد را خالی بگذارید</small>
                             <hr>
                         </div>
-
                         <div class="form-row mt-2">
                             <div class="col-3">
                                 <label class="d-block pt-2">رمز عبور</label>
@@ -102,6 +105,100 @@
                             <div class="col-9">
                                 <input type="password" name="password_confirmation" id="password_confirmation"
                                     class="form-control">
+                            </div>
+                        </div>
+                        <hr>
+                        <small class="text-center text-black w-100 d-block "> مدریرت دسترسی</small>
+                        <hr>
+                        <div class="form-row mt-2 maali">
+                            <div class="col-6">
+                                <label class="d-block pt-2">دسترسی کاربر ها</label>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check mt-2">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="view_user" id="" value="0" >
+                                        روشن
+                                    </label>
+                                    <label class="form-check-label mr-5">
+                                        <input type="radio" class="form-check-input" name="view_user" id="" value="1" selected>
+                                        خاموش
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2 maali anbaar foroosh">
+                            <div class="col-6">
+                                <label class="d-block pt-2">دسترسی مشتری ها</label>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check mt-2">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="view_clients" id=""
+                                            value="0" selected>
+                                        روشن
+                                    </label>
+                                    <label class="form-check-label  mr-5">
+                                        <input type="radio" class="form-check-input" name="view_clients" id=""
+                                            value="1">
+                                        خاموش
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2 maali anbaar">
+                            <div class="col-6">
+                                <label class="d-block pt-2">دسترسی دسته بندی</label>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check mt-2">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="view_category" id=""
+                                            value="0" selected>
+                                        روشن
+                                    </label>
+                                    <label class="form-check-label mr-5">
+                                        <input type="radio" class="form-check-input" name="view_category" id=""
+                                            value="1">
+                                        خاموش
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2 maali anbaar foroosh ">
+                            <div class="col-6">
+                                <label class="d-block pt-2">دسترسی محصولات </label>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check mt-2">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="view_products" id=""
+                                            value="0" selected>
+                                        روشن
+                                    </label>
+                                    <label class="form-check-label mr-5">
+                                        <input type="radio" class="form-check-input" name="view_products" id=""
+                                            value="1">
+                                        خاموش
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-2  maali anbaar foroosh">
+                            <div class="col-6">
+                                <label class="d-block pt-2">دسترسی سفارشات </label>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check mt-2">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="view_orders" id="" value="0" selected>
+                                        روشن
+                                    </label>
+                                    <label class="form-check-label mr-5">
+                                        <input type="radio" class="form-check-input" name="view_orders" id="" value="1">
+                                        خاموش
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,7 +220,6 @@
 </div>
 <div class="container-fluid mt-4">
     @include('layout.message')
-
     <div class="row">
         @if(Session::has('msg'))
         <div class="col">
@@ -132,16 +228,14 @@
             </div>
         </div>
         @endif
-
     </div>
-
     <div class="row">
         <div class="col-12">
             <div class="card p-4 border rounded-0">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div><span class="h4 d-block m-0">فروشنده ها</span></div>
+                    <div><span class="h4 d-block m-0">کاربر ها</span></div>
                     <div><button type="button" class="btn btn-dark btn-marketer-modal" data-action="add"
-                            data-modal="marketers_modal_table"><i class="fa fa-plus mr-2"></i> افزودن فروشنده</button>
+                            data-modal="marketers_modal_table"><i class="fa fa-plus mr-2"></i> افزودن کاربر</button>
                     </div>
                 </div>
                 <hr>
@@ -149,6 +243,7 @@
                     <table class="table text-center table-hover w-100 " id="table_marketer">
                         <thead>
                             <th>کد</th>
+                            <th>نوع</th>
                             <th>نام</th>
                             <th>نام خانوادگی</th>
                             <th>نام کاربری</th>

@@ -103,7 +103,7 @@ class OrderController extends Controller
                 $id = $data->id;
                 $status_set_cart_link = route('orders.status_set_cart', $id);
                 $order_destory_link = route('orders.destroy', $id);
-                $string = "<a class='btn btn-sm btn-dark'href=$status_set_cart_link> تبدیل به سبد <i class='fa fa-shopping-cart align-middle' aria-hidden='true'></i> </a>";
+                $string = "<a class='btn btn-sm btn-dark'href=$status_set_cart_link> ویرایش سبد موقت (تبدل به سبد) <i class='fa fa-shopping-cart align-middle' aria-hidden='true'></i> </a>";
                 $string .= "<a class='btn btn-sm mx-2 btn-outline-dark'href=$order_destory_link> حذف سبد <i class='fa fa-trash align-middle' aria-hidden='true'></i></a>";
                 return ($string);
             })
@@ -469,6 +469,7 @@ class OrderController extends Controller
                 'image' => $request->get('image'),
                 'date_manual' => $date,
                 'maali_status' => $maali_status,
+                'noe_kharid' => $request->get('noe_kharid'),
             ]);
             $order_selector = Order::where('id', $request->get('order_id'))->first();
             foreach ($order_selector->items()->get() as $item) {

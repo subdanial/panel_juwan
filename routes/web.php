@@ -94,6 +94,7 @@ Route::group(['prefix' => 'orders' , 'middleware' => 'auth'], function () {
     Route::get('/convert_pre_invoice_to_cart/{order}', 'OrderController@convert_pre_invoice_to_cart')->name('orders.convert_pre_invoice_to_cart');
     Route::get('/destroy_pre_invoice/{order}', 'OrderController@destroy_pre_invoice')->name('orders.destroy_pre_invoice');
 
+
     //activation_statuses
     Route::get('/foroosh_accept_status/{order}', 'OrderController@foroosh_accept_status')->name('orders.foroosh_accept_status');
     Route::get('/maali_accept_status/{order}', 'OrderController@maali_accept_status')->name('orders.maali_accept_status');
@@ -102,4 +103,10 @@ Route::group(['prefix' => 'orders' , 'middleware' => 'auth'], function () {
     //maali 
     Route::get('/destroy_order/{order}', 'OrderController@destroy_order')->name('orders.destroy_order');
     Route::get('/convert_order_to_pre_invoice/{order}', 'OrderController@convert_order_to_pre_invoice')->name('orders.convert_order_to_pre_invoice');
+});
+
+Route::group(['prefix' => 'items' , 'middleware' => 'auth'], function () {
+    Route::get('/get_item_values', 'ItemController@get_item_values')->name('items.get_item_values');
+    Route::get('/get_box', 'ItemController@get_box')->name('items.get_box');
+    Route::get('/update_item', 'ItemController@update_item')->name('items.update_item');
 });
